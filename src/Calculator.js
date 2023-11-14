@@ -70,6 +70,7 @@ function Calculator() {
         <button onClick={() => handleButtonClick('/')}>/</button>
         <button onClick={() => handleButtonClick('(')}>(</button>
         <button onClick={() => handleButtonClick(')')}>)</button>
+        <button onClick={() => handleButtonClick('.')}>.</button>
       </div>
     </div>
   );
