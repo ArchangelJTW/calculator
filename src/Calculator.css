@@ -1,0 +1,42 @@
+/* Calculator.css */
+.calculator {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
+  
+.display {
+    width: calc(100% - 20px); /* Adjust the width to account for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* Prevent content from overflowing */
+    word-wrap: break-word; /* Break the word to prevent overflow */
+}
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    flex: 1;
+    padding: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+  }
+  
+  button:last-child {
+    margin-right: 0;
+  }
