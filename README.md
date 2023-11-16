@@ -3,3 +3,6 @@
 ## Description
   A simple React.js calculator, this marks my first project using the framework.
 
+### [Try it!](https://archangeljtw.github.io/calculator/)
+
+
