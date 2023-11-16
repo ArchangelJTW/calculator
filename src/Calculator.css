@@ -19,24 +19,34 @@
     overflow: hidden; /* Prevent content from overflowing */
     word-wrap: break-word; /* Break the word to prevent overflow */
 }
-  
-  .button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    flex: 1;
-    padding: 10px;
-    margin-right: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #e7e7e7;
-  }
-  
-  button:last-child {
-    margin-right: 0;
-  }
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  margin-right: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e7e7e7;
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+.button-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-img img {
+  max-width: 20px;
+  max-height: 20px;
+}

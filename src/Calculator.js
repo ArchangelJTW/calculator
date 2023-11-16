@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Calculator.css';
+import parseInput from './CalculatorParser';
 
 function Calculator() {
+
   const [input, setInput] = useState('');
 
   const handleButtonClick = (value) => {
@@ -10,10 +12,14 @@ function Calculator() {
 
   const calculateResult = () => {
     try {
-      const result = eval(input); // This is 'unsafe' should probably create some parsing class
+      const result = parseInput(input); // replaced `eval` with my own implementation given that it was referred to as unsafe and vulnerable to injection attacks
+      if (result === null) {
+        throw new Error('Invalid expression');
+      }
       setInput(String(result));
     } catch (error) {
       setInput('Error');
+      console.log(error);
     }
   };
 
@@ -27,7 +33,7 @@ function Calculator() {
         calculateResult();
       } else if (event.key === 'Escape') {
         clearInput();
-      } else if ((event.key >= '0' && event.key <= '9') || "/*-+().".includes(event.key)) {
+      } else if ((event.key >= '0' && event.key <= '9') || "/*-+().^".includes(event.key)) {
         handleButtonClick(event.key);
       } else if (event.key === 'Backspace') {
         event.preventDefault();
@@ -46,10 +52,20 @@ function Calculator() {
     <div className="calculator">
       <div className="display">{input || "0"}</div>
       <div className="button-row">
-        <button onClick={() => handleButtonClick('1')}>1</button>
-        <button onClick={() => handleButtonClick('2')}>2</button>
-        <button onClick={() => handleButtonClick('3')}>3</button>
-        <button onClick={() => handleButtonClick('+')}>+</button>
+        <button onClick={() => handleButtonClick('(')}>(</button>
+        <button onClick={() => handleButtonClick(')')}>)</button>
+        <button onClick={() => handleButtonClick('^')}>^</button>
+        <button onClick={() => handleButtonClick('/')} className="button-img">
+          <img src="div32.png" alt="÷"/>
+        </button>
+      </div>
+      <div className="button-row">
+        <button onClick={() => handleButtonClick('7')}>7</button>
+        <button onClick={() => handleButtonClick('8')}>8</button>
+        <button onClick={() => handleButtonClick('9')}>9</button>
+        <button onClick={() => handleButtonClick('*')} className="button-img">
+          <img src="mul32.png" alt="x"/>
+        </button>
       </div>
       <div className="button-row">
         <button onClick={() => handleButtonClick('4')}>4</button>
@@ -58,19 +74,16 @@ function Calculator() {
         <button onClick={() => handleButtonClick('-')}>-</button>
       </div>
       <div className="button-row">
-        <button onClick={() => handleButtonClick('7')}>7</button>
-        <button onClick={() => handleButtonClick('8')}>8</button>
-        <button onClick={() => handleButtonClick('9')}>9</button>
-        <button onClick={() => handleButtonClick('*')}>*</button>
+        <button onClick={() => handleButtonClick('1')}>1</button>
+        <button onClick={() => handleButtonClick('2')}>2</button>
+        <button onClick={() => handleButtonClick('3')}>3</button>
+        <button onClick={() => handleButtonClick('+')}>+</button>
       </div>
       <div className="button-row">
-        <button onClick={() => handleButtonClick('0')}>0</button>
-        <button onClick={calculateResult}>=</button>
         <button onClick={clearInput}>C</button>
-        <button onClick={() => handleButtonClick('/')}>/</button>
-        <button onClick={() => handleButtonClick('(')}>(</button>
-        <button onClick={() => handleButtonClick(')')}>)</button>
+        <button onClick={() => handleButtonClick('0')}>0</button>
         <button onClick={() => handleButtonClick('.')}>.</button>
+        <button onClick={calculateResult}>=</button>
       </div>
     </div>
   );
