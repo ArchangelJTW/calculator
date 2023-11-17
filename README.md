@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple React.js calculator, marking my first project using the framework. It's designed to perform basic arithmetic operations and provides a user-friendly interface for quick calculations.
+This is a simple React.js calculator, marking my first project using the framework. It's designed to perform basic arithmetic operations and provides a simple interface for calculations.
 
 ## Prerequisites
 
