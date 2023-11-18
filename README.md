@@ -14,7 +14,8 @@ This is a simple React.js calculator, marking my first project using the framewo
 
 ### Prerequisites
 
-Before you begin, ensure you have the latest version of [Node.js and npm](https://nodejs.org/) installed on your system.
+  Before you begin, ensure you have the latest version of [Node.js and npm](https://nodejs.org/) installed on your system.
+
 
 1. Clone the project using Git:
 
