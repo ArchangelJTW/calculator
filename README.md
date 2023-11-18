@@ -10,12 +10,11 @@ This is a simple React.js calculator, marking my first project using the framewo
 - Paranthesis support
 - Clean, simple, and intuitive design
 
-## Install
-
 ### Prerequisites
 
   Before you begin, ensure you have the latest version of [Node.js and npm](https://nodejs.org/) installed on your system.
 
+## Install
 
 1. Clone the project using Git:
 
