@@ -10,6 +10,9 @@ This is a simple React.js calculator, marking my first project using the framewo
 - Paranthesis support
 - Clean, simple, and intuitive design
 
+## Live Demo
+[**Click here to demo**](https://archangeljtw.github.io/calculator/)
+
 ### Prerequisites
 
   Before you begin, ensure you have the latest version of [Node.js and npm](https://nodejs.org/) installed on your system.
@@ -37,7 +40,3 @@ npm start
 ```
 
 The application should now be running and accessible at `http://localhost:3000`.
-
-## Live Demo
-
-[**Try it!**](https://archangeljtw.github.io/calculator/)
