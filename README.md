@@ -4,11 +4,17 @@
 
 This is a simple React.js calculator, marking my first project using the framework. It's designed to perform basic arithmetic operations and provides a simple interface for calculations.
 
-## Prerequisites
+## Features
+
+- Basic arithmetic operations: addition, subtraction, multiplication, division, and exponents
+- Paranthesis support
+- Clean, simple, and intuitive design
+
+## Install
+
+### Prerequisites
 
 Before you begin, ensure you have the latest version of [Node.js and npm](https://nodejs.org/) installed on your system.
-
-## To Demo In Your Code Editor
 
 1. Clone the project using Git:
 
@@ -31,12 +37,6 @@ npm start
 ```
 
 The application should now be running and accessible at `http://localhost:3000`.
-
-## Features
-
-- Basic arithmetic operations: addition, subtraction, multiplication, division, and exponents
-- Paranthesis support
-- Clean, simple, and intuitive design
 
 ## Live Demo
 
