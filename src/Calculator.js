@@ -12,7 +12,7 @@ function Calculator() {
 
   const calculateResult = () => {
     try {
-      const result = parseInput(input); // replaced `eval` with my own implementation given that it was referred to as unsafe and vulnerable to injection attacks
+      const result = parseInput(input); // replaced `eval` it is considered unsafe and vulnerable to injection attacks
       if (result === null) {
         throw new Error('Invalid expression');
       }
@@ -27,6 +27,7 @@ function Calculator() {
     setInput('');
   };
 
+  // Handle keypresses
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
@@ -48,6 +49,7 @@ function Calculator() {
     };
   }, [input]);
 
+  // Build the user interface
   return (
     <div className="calculator">
       <div className="display">{input || "0"}</div>

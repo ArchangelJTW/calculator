@@ -1,6 +1,7 @@
 
 const operators = '+-*/()^';
 
+// My thought process is to turn the equation into "usable parts", the individual components of an equation that have meaning
 function tokenize(input) {
     input = input.replace(/\s+/g, '');
  
@@ -28,6 +29,7 @@ function tokenize(input) {
     return tokens;
   }
 
+
 class TreeNode {
   constructor(value) {
     this.value = value;
@@ -36,6 +38,7 @@ class TreeNode {
   }
 }
 
+// Order of operation importance
 const precedence = {
   '+': 1,
   '-': 1,
@@ -44,6 +47,7 @@ const precedence = {
   '^': 3,
 };
 
+// Create a tree from our tokens that represents the order of operations required to reach a solution
 function createTree(tokens) {
   const operatorStack = [];
   const operandStack = [];
@@ -86,6 +90,7 @@ function createTree(tokens) {
   return operandStack.pop();
 }
 
+// Recursively solve the operations in a tree until we reach a number which should be our solution
 function solve(tree) {
 
   if (typeof tree.value === 'number') {
@@ -111,6 +116,7 @@ function solve(tree) {
   }
 }
 
+// Put everything together
 function solveInput(input) {
   try {
     const tokens = tokenize(input);
@@ -121,5 +127,7 @@ function solveInput(input) {
     return null;
   }
 }
+
+// Once I learn Jest or another Unit Testing library, there would a unit test for solveInput to make sure we get a valid result from a test equation
 
 export default solveInput;

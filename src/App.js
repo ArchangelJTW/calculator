@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Calculator from './Calculator';
 
-// Always keep injection points clean
+// Always keep injection point clean
 function App() {
   return (
     <div className="App">
