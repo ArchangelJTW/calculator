@@ -127,7 +127,6 @@ function solveInput(input) {
     return null;
   }
 }
-
-// Once I learn Jest or another Unit Testing library, there would a unit test for solveInput to make sure we get a valid result from a test equation
+// Unit testing for solveInput is done in CalculatorParser.test.js
 
 export default solveInput;
