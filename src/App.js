@@ -5,7 +5,7 @@ import Calculator from './Calculator';
 // Always keep injection point clean
 function App() {
   return (
-    <div className="App">
+    <div>
       <Calculator />
     </div>
   );

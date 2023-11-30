@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Calculator.css';
 import parseInput from './CalculatorParser';
 
 function Calculator() {
-
   const [input, setInput] = useState('');
 
-  const handleButtonClick = (value) => {
-    setInput(input + value);
-  };
+  const handleButtonClick = useCallback((value) => {
+    setInput((currentInput) => currentInput + value);
+  }, []);
 
-  const calculateResult = () => {
+  const calculateResult = useCallback(() => {
     try {
-      const result = parseInput(input); // replaced `eval` it is considered unsafe and vulnerable to injection attacks
+      const result = parseInput(input);
       if (result === null) {
         throw new Error('Invalid expression');
       }
@@ -21,13 +20,12 @@ function Calculator() {
       setInput('Error');
       console.log(error);
     }
-  };
+  }, [input]);
 
-  const clearInput = () => {
+  const clearInput = useCallback(() => {
     setInput('');
-  };
+  }, []);
 
-  // Handle keypresses
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
@@ -38,7 +36,7 @@ function Calculator() {
         handleButtonClick(event.key);
       } else if (event.key === 'Backspace') {
         event.preventDefault();
-        setInput(input.slice(0, -1));
+        setInput((currentInput) => currentInput.slice(0, -1));
       }
     };
 
@@ -47,7 +45,7 @@ function Calculator() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [input]);
+  }, [calculateResult, clearInput, handleButtonClick]);
 
   // Build the user interface
   return (
