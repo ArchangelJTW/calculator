@@ -7,7 +7,7 @@ This is a simple React.js calculator, marking my first project using the framewo
 ## Features
 
 - Basic arithmetic operations: addition, subtraction, multiplication, division, and exponents
-- Paranthesis support
+- Parentheses support
 - Clean, simple, and intuitive design
 - Basic keyboard support
 
