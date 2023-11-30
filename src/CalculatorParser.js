@@ -8,8 +8,21 @@ function tokenize(input) {
   const tokens = [];
   let currentToken = '';
 
-  for (const char of input) {
-    if (operators.includes(char)) {
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+
+    // Check for a negative expression sign
+    if (char === '-' && (i === 0 || operators.includes(input[i - 1]) || input[i - 1] === '(')) {
+      // Add a zero only if the minus is not following a closing parenthesis
+      if (i === 0 || input[i - 1] !== ')') {
+        if (currentToken) {
+          tokens.push(currentToken);
+          currentToken = '';
+        }
+        tokens.push('0');
+      }
+      tokens.push('-');
+    } else if (operators.includes(char) || char === '(' || char === ')') {
       if (currentToken) {
         tokens.push(currentToken);
         currentToken = '';

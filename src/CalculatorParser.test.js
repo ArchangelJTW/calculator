@@ -37,4 +37,5 @@ describe('solveInput', () => {
   test('returns null for invalid input', () => {
     expect(solveInput('2$3')).toBeNull();
   });
+
 });
