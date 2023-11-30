@@ -3,31 +3,31 @@ const operators = '+-*/()^';
 
 // My thought process is to turn the equation into "usable parts", the individual components of an equation that have meaning
 function tokenize(input) {
-    input = input.replace(/\s+/g, '');
- 
-	const tokens = [];
-    let currentToken = '';
+  input = input.replace(/\s+/g, '');
 
-    for (const char of input) {
-      if (operators.includes(char)) {
-        if (currentToken) {
-          tokens.push(currentToken);
-          currentToken = '';
-        }
-        tokens.push(char);
-      } else if (char.match(/\d|\./)) {
-        currentToken += char;
-      } else {
-        throw new Error(`Invalid character: ${char}`);
+  const tokens = [];
+  let currentToken = '';
+
+  for (const char of input) {
+    if (operators.includes(char)) {
+      if (currentToken) {
+        tokens.push(currentToken);
+        currentToken = '';
       }
+      tokens.push(char);
+    } else if (char.match(/\d|\./)) {
+      currentToken += char;
+    } else {
+      throw new Error(`Invalid character: ${char}`);
     }
-	
-    if (currentToken) {
-      tokens.push(currentToken);
-    }
-
-    return tokens;
   }
+
+  if (currentToken) {
+    tokens.push(currentToken);
+  }
+
+  return tokens;
+}
 
 
 class TreeNode {
